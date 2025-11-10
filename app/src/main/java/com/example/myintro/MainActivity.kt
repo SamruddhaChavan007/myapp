@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
                 )
                 zoomX.interpolator = OvershootInterpolator()
                 zoomX.duration = 500L
-                zoomX.doOnEnd{ screen.remove() }
+                zoomX.doOnEnd { screen.remove() }
 
                 val zoomY = ObjectAnimator.ofFloat(
                     screen.iconView,
@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity() {
                 )
                 zoomY.interpolator = OvershootInterpolator()
                 zoomY.duration = 500L
-                zoomY.doOnEnd{ screen.remove() }
+                zoomY.doOnEnd { screen.remove() }
 
                 zoomX.start()
                 zoomY.start()
