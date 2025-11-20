@@ -55,7 +55,7 @@ import com.example.myintro.datamodels.BottomDestination
 fun AnimatedNavigationBar(
     navController: NavHostController,
     items: List<BottomDestination>,
-    barColor: Color = Color.LightGray,
+    barColor: Color = Color.White,
     circleColor: Color = Color.White,
     selectedColor: Color = Color.Black,
     unselectedColor: Color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -117,7 +117,7 @@ fun AnimatedNavigationBar(
                 .onPlaced { barSize = it.size }
                 .fillMaxWidth()
                 .height(78.dp)
-                .background(barColor, shape = barShape)
+                .background(barColor.copy(alpha = 0.6f), shape = barShape)
                 .animateContentSize(),
             horizontalArrangement = Arrangement.SpaceAround,
             verticalAlignment = Alignment.CenterVertically
@@ -240,7 +240,7 @@ private fun Circle(
         modifier = modifier
             .size(radius * 2)
             .clip(CircleShape)
-            .background(color),
+            .background(color.copy(alpha = 0.8f)),
     ) {
         AnimatedContent(targetState = button.icon, label = "circle-icon") { targetIcon ->
             Icon(targetIcon, button.label, tint = iconColor)
