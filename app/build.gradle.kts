@@ -59,11 +59,14 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-    implementation("androidx.navigation:navigation-compose:2.8.3")
+    implementation(libs.androidx.navigation.compose)
 
     //SplashScreen
-    implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation(libs.androidx.core.splashscreen)
 
     //Icons
-    implementation("androidx.compose.material:material-icons-extended:current_version")
+    implementation(libs.androidx.compose.material.icons.extended)
+
+    //Fonts
+    implementation(libs.androidx.compose.ui.text.google.fonts)
 }
