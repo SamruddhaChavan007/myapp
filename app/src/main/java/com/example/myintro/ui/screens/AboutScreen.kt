@@ -2,6 +2,7 @@ package com.example.myintro.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -25,6 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,9 +37,13 @@ import com.example.myintro.learning.SCurveStatic
 import com.example.myintro.ui.theme.GeorgiaFontFamily
 import com.example.myintro.ui.theme.PacificoFontFamily
 import com.example.myintro.ui.theme.RobotoFontFamily
+import com.example.myintro.utils.AppLinks
 
 @Composable
 fun AboutScreen() {
+
+    val uriHandler = LocalUriHandler.current
+
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -79,7 +85,7 @@ fun AboutScreen() {
             }
             Spacer(Modifier.height(10.dp))
             Text(
-                text = "About Screen",
+                text = "About Me",
                 fontFamily = PacificoFontFamily,
                 fontSize = 40.sp,
                 color = Color(0xffeba05f)
@@ -148,19 +154,31 @@ fun AboutScreen() {
                 Image(
                     painter = painterResource(R.drawable.linkedin_icon),
                     contentDescription = "Linkedin",
-                    modifier = Modifier.size(30.dp),
+                    modifier = Modifier
+                        .size(30.dp)
+                        .clickable{
+                            uriHandler.openUri(AppLinks.LINKEDIN_URL)
+                        },
                 )
                 Spacer(Modifier.width(58.dp))
                 Image(
                     painter = painterResource(R.drawable.github_icon),
                     contentDescription = "Github",
-                    modifier = Modifier.size(30.dp)
+                    modifier = Modifier
+                        .size(30.dp)
+                        .clickable{
+                            uriHandler.openUri(AppLinks.GITHUB_URL)
+                        },
                 )
                 Spacer(Modifier.width(58.dp))
                 Image(
                     painter = painterResource(R.drawable.gmail_logo),
-                    contentDescription = "Github",
-                    modifier = Modifier.size(30.dp)
+                    contentDescription = "Gmail",
+                    modifier = Modifier
+                        .size(30.dp)
+                        .clickable{
+                            uriHandler.openUri(AppLinks.EMAIL_MAILTO)
+                        }
                 )
             }   //Icon Row
         }       //Main Column
